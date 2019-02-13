@@ -3,26 +3,23 @@
 if (!is_cli()){
 echo "please run me whit php-cli!!! \n";
 exit;
-
 }
 
-var_dump(phpversion());
+echo "PHP VERSION:".phpversion();
+echo "\n";
 
 $env = getenv();
 
 foreach (explode(":",$env['PATH']) as $value){
   echo "\n";
-  echo "\n";
-  echo "\n";
-  echo "=======".$value."=============";
+  echo "=======".$value."===start=============";
   echo "\n";
   $filenames = get_filenamesbydir($value);
   //打印所有文件名，包括路径 
-  foreach ($filenames as $value) { 
-      echo $value."\n"; 
+  foreach ($filenames as $commandvalue) { 
+      echo $commandvalue."\n"; 
   }
-  echo "\n";
-  echo "=======".$value."=============";
+  echo "=======".$value."===end=============";
   echo "\n";
 }
 
@@ -61,7 +58,6 @@ function get_allfiles($path,&$files) {
 
 } 
 
-    
 
 function get_filenamesbydir($dir){ 
 
